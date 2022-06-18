@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HiArray</title>
+  </head>
+  <style>
+    :root {
+      --white: rgba(212, 208, 208, 0.63);
+      --skyBlue: rgba(70, 216, 26, 0.882);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-size: 21px;
+      background-color: var(--white);
+    }
+
+    .wrapper {
+      width: 80%;
+      max-width: 750px;
+      margin: 0 auto;
+      padding: 3rem;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .hero {
+      margin-top: 5rem;
+      padding: 5rem 0;
+      background: skyblue;
+      color: white;
+      border: 10px solid var(--skyBlue);
+    }
+
+    .text {
+      background: white;
+      width: 100%;
+      padding: 3em;
+      color: black;
+      font-size: 25px;
+      font-weight: 900;
+      display: flex;
+      justify-content: center;
+      transition: 0.7s;
+      box-shadow: 2px 2px 2px 0.2px black;
+    }
+
+    .hero a {
+      text-decoration: none;
+    }
+
+    .hero .btn {
+      padding: 0.75em;
+      box-shadow: 2px 2px 2px 0.2px black;
+      background: var(--white);
+      color: var(--skyBlue);
+      text-transform: uppercase;
+      font-weight: 900;
+    }
+  </style>
+
+  <body>
+    <div class="hero">
+      <div class="wrapper">
+        <div class="text">
+          <p>Hi</p>
+          <a href="#" class="flags">
+            <span>🇬🇧 </span>
+          </a>
+        </div>
+        <button class="btn">Click Me</button>
+      </div>
+    </div>
+    <script>
+      // Where I got the greetings from
+      // https://www.babbel.com/en/magazine/how-to-say-hello-in-10-different-languages
+      const translation = document.querySelector(".text > p");
+      const divFlag = document.querySelector("span");
+      const submitBtn = document.querySelector(".hero .btn");
+      let lastGreeting;
+      const greetings = [
+        "Hi", // eng
+        "Hei", // norsk
+        "Bonjour", // french
+        "Hola", // spanish
+        "Privet", // russian
+        "Ni hao", // chinese
+        "Ciao", // italian
+        "Konnichiwa", // japanese
+        "Guten Tag", // german
+        "Olá", // portuguese
+        "Anyong haseyo", // korean
+        "Assalamu alaykum", // arabic
+        "Hej", // danish
+        "Shikamoo", // swahili
+        "Hoi", // dutch
+        "Yassas", // greek
+        "Witaj", // polish
+        "Selamat siang", // indonesian
+        "Namaste", // hindi
+        "Merhaba", // turkish
+        "Shalom", // hebrew
+        "Hej", // swedish
+        "Akaam jirtani", // oromo
+      ];
+
+      const flags = [
+        "🇬🇧 ", // eng
+        "🇳🇴 ", // norsk
+        "🇫🇷 ", // french
+        "🇪🇸 ", // spanish
+        "🇷🇺 ", // russian
+        "🇨🇳 ", // chinese
+        "🇮🇹 ", // italian
+        "🇯🇵 ", // japanese
+        " 🇩🇪 ", // german
+        "🇵🇹 ", // portuguese
+        "🇰🇷 ", // korean
+        " 🇪🇬 ", // arabic
+        "🇩🇰 ", // danish
+        "🇰🇪 ", // swahili
+        "🇳🇱 ", // dutch
+        "🇬🇷 ", // greek
+        "🇵🇱 ", // polish
+        " 🇮🇩 ", // indonesian
+        "🇮🇳 ", // hindi
+        "🇹🇷 ", // turkish
+        "🇮🇱 ", // hebrew
+        "🇸🇪 ", // swedish
+        " 🇪🇹 ", // oromo
+      ];
+
+      function getTranslation() {
+        const random = Math.floor(Math.random() * greetings.length);
+        const greeting = greetings[random];
+        translation.textContent = greeting;
+        // to avoid the same greeting reaparing twice in a row
+        if (greeting === lastGreeting) {
+          return getTranslation();
+        }
+        lastGreeting = greeting;
+        // the flags should attach to the right greeting
+        const flag = flags[random];
+        divFlag.innerHTML = flag;
+      }
+
+      submitBtn.addEventListener("click", getTranslation);
+    </script>
+  </body>
+</html>
