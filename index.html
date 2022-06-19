@@ -5,152 +5,110 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HiArray</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
-  <style>
-    :root {
-      --white: rgba(212, 208, 208, 0.63);
-      --skyBlue: rgba(70, 216, 26, 0.882);
-    }
-
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-size: 21px;
-      background-color: var(--white);
-    }
-
-    .wrapper {
-      width: 80%;
-      max-width: 750px;
-      margin: 0 auto;
-      padding: 3rem;
-      display: grid;
-      gap: 1rem;
-    }
-
-    .hero {
-      margin-top: 5rem;
-      padding: 5rem 0;
-      background: skyblue;
-      color: white;
-      border: 10px solid var(--skyBlue);
-    }
-
-    .text {
-      background: white;
-      width: 100%;
-      padding: 3em;
-      color: black;
-      font-size: 25px;
-      font-weight: 900;
-      display: flex;
-      justify-content: center;
-      transition: 0.7s;
-      box-shadow: 2px 2px 2px 0.2px black;
-    }
-
-    .hero a {
-      text-decoration: none;
-    }
-
-    .hero .btn {
-      padding: 0.75em;
-      box-shadow: 2px 2px 2px 0.2px black;
-      background: var(--white);
-      color: var(--skyBlue);
-      text-transform: uppercase;
-      font-weight: 900;
-    }
-  </style>
-
   <body>
     <div class="hero">
       <div class="wrapper">
         <div class="text">
-          <p>Hi</p>
+          <h2 class="title">Hi</h2>
           <a href="#" class="flags">
             <span>🇬🇧 </span>
           </a>
+          <p class="number">#1</p>
         </div>
         <button class="btn">Click Me</button>
       </div>
     </div>
+    <footer class="gallery">
+      <div class="footer_wrapper grid">
+        <h2 class="title">Don't forget to check out my other projects!</h2>
+        <a
+          href="https://purplehippo911.github.io/flexbox/"
+          class="item flexbox"
+        >
+          <img src="screenshots/flexForm.png" alt="flexbox" />
+        </a>
+        <a
+          href="https://purplehippo911.github.io/SignUp_form/"
+          class="item signUp"
+        >
+          <img src="screenshots/singUP.jpg" alt="signUp"
+        /></a>
+        <a
+          href="https://purplehippo911.github.io/pricingComponent"
+          class="item pricingComponent"
+        >
+          <img src="screenshots/pricingComponent.png" alt="pricing Component" />
+        </a>
+        <a
+          href="https://purplehippo911.github.io/weatherApp/"
+          class="item weatherApp"
+        >
+          <img src="screenshots/weatherApp.png" alt="weatherApp" />
+        </a>
+
+        <a href="https://purplehippo911.github.io/Grid/" class="item Grid">
+          <img src="screenshots/tacoSite.png" alt="Grid" />
+        </a>
+
+        <a href="https://github.com/purplehippo911/" class="item Github">
+          <img src="screenshots/github.png" alt="Check me out on Github" />
+        </a>
+      </div>
+    </footer>
     <script>
       // Where I got the greetings from
       // https://www.babbel.com/en/magazine/how-to-say-hello-in-10-different-languages
-      const translation = document.querySelector(".text > p");
+      const translation = document.querySelector(".text > .title");
       const divFlag = document.querySelector("span");
       const submitBtn = document.querySelector(".hero .btn");
       let lastGreeting;
-      const greetings = [
-        "Hi", // eng
-        "Hei", // norsk
-        "Bonjour", // french
-        "Hola", // spanish
-        "Privet", // russian
-        "Ni hao", // chinese
-        "Ciao", // italian
-        "Konnichiwa", // japanese
-        "Guten Tag", // german
-        "Olá", // portuguese
-        "Anyong haseyo", // korean
-        "Assalamu alaykum", // arabic
-        "Hej", // danish
-        "Shikamoo", // swahili
-        "Hoi", // dutch
-        "Yassas", // greek
-        "Witaj", // polish
-        "Selamat siang", // indonesian
-        "Namaste", // hindi
-        "Merhaba", // turkish
-        "Shalom", // hebrew
-        "Hej", // swedish
-        "Akaam jirtani", // oromo
-      ];
 
-      const flags = [
-        "🇬🇧 ", // eng
-        "🇳🇴 ", // norsk
-        "🇫🇷 ", // french
-        "🇪🇸 ", // spanish
-        "🇷🇺 ", // russian
-        "🇨🇳 ", // chinese
-        "🇮🇹 ", // italian
-        "🇯🇵 ", // japanese
-        " 🇩🇪 ", // german
-        "🇵🇹 ", // portuguese
-        "🇰🇷 ", // korean
-        " 🇪🇬 ", // arabic
-        "🇩🇰 ", // danish
-        "🇰🇪 ", // swahili
-        "🇳🇱 ", // dutch
-        "🇬🇷 ", // greek
-        "🇵🇱 ", // polish
-        " 🇮🇩 ", // indonesian
-        "🇮🇳 ", // hindi
-        "🇹🇷 ", // turkish
-        "🇮🇱 ", // hebrew
-        "🇸🇪 ", // swedish
-        " 🇪🇹 ", // oromo
+      const greetings = [
+        { text: "Hi", flag: "🇬🇧 " }, // english
+        { text: " Hei", flag: "🇳🇴 " }, // norsk
+        { text: "Bonjour", flag: "🇫🇷 " }, // french
+        { text: "Hola", flag: "🇪🇸 " }, // spanish
+        { text: "Privet", flag: "🇷🇺 " }, // russian
+        { text: " Ni hao", flag: "🇨🇳 " }, // chinese
+        { text: " Ciao", flag: "🇮🇹 " }, // italian
+        { text: " Konnichiwa", flag: "🇯🇵 " }, // japanese
+        { text: "Guten Tag", flag: "🇩🇪 " }, // german
+        { text: " Olá", flag: "🇵🇹 " }, // portuguese
+        { text: " Anyong haseyo ", flag: "🇰🇷 " }, // korean
+        { text: " Assalamu alaykum", flag: "🇪🇬 " }, // arabic
+        { text: " Hej", flag: "🇩🇰 " }, // danish
+        { text: "Shikamoo", flag: "🇰🇪 " }, // swahili
+        { text: " Hoi", flag: "🇳🇱 " }, // dutch
+        { text: " Yassas", flag: "🇬🇷 " }, // greek
+        { text: " Witaj", flag: "🇵🇱 " }, // polish
+        { text: "Selamat siang ", flag: "🇮🇩 " }, // indonesian
+        { text: " Namaste", flag: "🇮🇳 " }, // hindi
+        { text: " Merhaba", flag: "🇹🇷 " }, // turkish
+        { text: " Shalom", flag: "🇮🇱 " }, // hebrew
+        { text: " Hej", flag: "🇸🇪 " }, // swedish
+        { text: " Akaam jirtani", flag: "🇪🇹 " }, // oromo
       ];
 
       function getTranslation() {
         const random = Math.floor(Math.random() * greetings.length);
         const greeting = greetings[random];
-        translation.textContent = greeting;
+        translation.textContent = greeting.text;
         // to avoid the same greeting reaparing twice in a row
         if (greeting === lastGreeting) {
           return getTranslation();
         }
         lastGreeting = greeting;
         // the flags should attach to the right greeting
-        const flag = flags[random];
+        const flag = greeting.flag;
         divFlag.innerHTML = flag;
+
+        console.log(greeting, random);
+
+        document.querySelector(".number").textContent = `#${random}`;
+
+        console.table(greetings);
       }
 
       submitBtn.addEventListener("click", getTranslation);
