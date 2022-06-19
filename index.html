@@ -104,11 +104,10 @@
         const flag = greeting.flag;
         divFlag.innerHTML = flag;
 
+        console.table(greetings);
         console.log(greeting, random);
 
         document.querySelector(".number").textContent = `#${random}`;
-
-        console.table(greetings);
       }
 
       submitBtn.addEventListener("click", getTranslation);
